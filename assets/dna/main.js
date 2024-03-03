@@ -20,6 +20,7 @@ function App({ _ctx, data }) {
   const isValid = `${data["valid?"]}`;
   const alpha = data.alphabet || "None";
   const sequence = data.sequence || "None";
+  // This may not be required with the charlist impl for sequences...
   let chunkNucleotides = _.flow([splitEmpty, makeNucleotides, chunkToFit]);
 
   return (
