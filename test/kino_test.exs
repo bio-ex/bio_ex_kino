@@ -1,8 +1,8 @@
-defmodule Bio.KinoTest do
+defmodule KinoBio.KinoTest do
   use ExUnit.Case
-  doctest Bio.Kino
+  doctest KinoBio.Kino
 
   test "greets the world" do
-    assert Bio.Kino.hello() == :world
+    flunk
   end
 end

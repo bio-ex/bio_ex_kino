@@ -6,7 +6,7 @@ root_path = Path.join(__DIR__, "..")
 Mix.install(
   [
     # TODO: find out why force: true is required to deal with deps
-    {:kino_bio_ex, path: "/Users/philip.capel/open_source/kino_bio_ex", force: true}
+    {:kino_bio_ex, path: root_path, force: true}
   ],
   lockfile: Path.join(root_path, "mix.lock")
 )

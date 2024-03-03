@@ -1,4 +1,4 @@
-defmodule KinoBioEx.Sequence do
+defmodule KinoBio.Sequence do
   @moduledoc """
   So this could be the basic impl, and then we have the data type specific
   implementations maybe?
@@ -9,13 +9,16 @@ defmodule KinoBioEx.Sequence do
 
   alias Bio.Sequence.{
     DnaStrand,
-    DnaDoubleStrand,
-    RnaStrand,
-    RnaDoubleStrand,
-    AminoAcid
+    DnaDoubleStrand
   }
 
-  def new(%_{} = sequence) do
+  @spec new(%DnaStrand{} | %DnaDoubleStrand{}) :: any()
+  def new(%DnaStrand{} = sequence) do
+    data = Map.from_struct(sequence)
+    Kino.JS.new(__MODULE__, data)
+  end
+
+  def new(%DnaDoubleStrand{} = sequence) do
     data = Map.from_struct(sequence)
     Kino.JS.new(__MODULE__, data)
   end
