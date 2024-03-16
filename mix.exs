@@ -3,26 +3,40 @@ defmodule Bio.Kino.MixProject do
 
   def project do
     [
-      app: :bio_ex_kino,
+      app: :kino_bio_ex,
       version: "0.1.0",
-      elixir: "~> 1.16",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
+    |> with_coverage()
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:kino, "~> 0.12.0"},
+      {:bio_ex_sequence, "~> 0.1.1"},
+      {:bio_ex_restriction, "~> 0.1.1"},
+      {:excoveralls, "~> 0.18", only: :test}
     ]
+  end
+
+  defp with_coverage(list) do
+    Keyword.merge(list,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "coveralls.cobertura": :test
+      ]
+    )
   end
 end
