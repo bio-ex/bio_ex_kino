@@ -1,0 +1,8 @@
+.headers {
+    display: flex;
+    flex-direction: row;
+}
+
+.headers > h3 {
+    margin-right: .5em;
+}

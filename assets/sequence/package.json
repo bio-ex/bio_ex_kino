@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "esbuild main.js --bundle --minify --outfile=../../lib/assets/dna/build/main.js --format=esm --loader:.js=jsx",
+    "kundle": "kino-bundler --outdir=../../lib/assets/dna/build",
+    "build": "esbuild main.js --bundle --minify --outfile=/main.js --format=esm --loader:.js=jsx",
     "dev": "esbuild main.js --bundle --minify --outfile=../../lib/assets/dna/build/main.js --format=esm --loader:.js=jsx --watch"
   },
   "dependencies": {
@@ -9,10 +10,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
-    "react-laag": "^2.0.5"
+    "react-laag": "^2.0.5",
+    "seqviz": "^3.10.6"
   },
   "devDependencies": {
     "@eslint/create-config": "0.4.6",
+    "@livebook/kino-bundler": "^0.1.0",
     "esbuild": "^0.15.16",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "latest"
